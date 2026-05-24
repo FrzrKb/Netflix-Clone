@@ -14,18 +14,20 @@ function Footer() {
         <div className="footer__rows">
           {/* 🔹 Column 1 */}
           <div className="footer__column">
-            <a href="#">FAQ</a>
-            <a href="#">Investor Relations</a>
-            <a href="#">Terms of Use</a>
-            <a href="#">Contact Us</a>
+            <a href="https://help.netflix.com/en/node/412">FAQ</a>
+            <a href="netflix.com/et/login?nextpage=https%3A%2F%2Fwww.netflix.com%2Fyouraccount">
+              Investor Relations
+            </a>
+            <a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a>
+            <a href="https://help.netflix.com/en/contactus">Contact Us</a>
           </div>
 
           {/* 🔹 Column 2 */}
           <div className="footer__column">
-            <a href="#">Help Center</a>
-            <a href="#">Jobs</a>
-            <a href="#">Privacy</a>
-            <a href="#">Speed Test</a>
+            <a href="https://help.netflix.com/en">Help Center</a>
+            <a href="https://jobs.netflix.com/">Jobs</a>
+            <a href="https://help.netflix.com/legal/privacy">Privacy</a>
+            <a href="https://fast.com/">Test Speed</a>
           </div>
 
           {/* 🔹 Column 3 */}

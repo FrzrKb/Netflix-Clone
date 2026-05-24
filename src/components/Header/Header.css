@@ -1,110 +1,110 @@
-/* 🟢 የላይኛው ዋና ሄደር ሳጥን */
+/* Main header wrapper stretching across the screen */
 .header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 68px; /* የኔትፍሊክስ መደበኛ የሄደር ቁመት */
-    z-index: 10; /* ከሁሉም ኤለመንቶች በላይ እንዲሆን */
-    display: flex;
-    justify-content: center; /* ይዘቱን መሃል ላይ ለማቀናጀት */
-    background-color: transparent;
-    /* የጀርባ ቀለም ሲቀየር ለስላሳ ሽግግር እንዲኖረው */
-    transition-timing-function: ease-in;
-    transition: all 0.5s;
-    box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 68px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+  box-sizing: border-box;
 }
 
-/* 🔄 ስክሮል ሲደረግ የሚጨምረው ጥቁር ባክግራውንድ */
-.header__black {
-    background-color: #141414; /* እውነተኛው የኔትፍሊክስ ጥቁር ቀለም */
-}
-
-/* 📐 የሄደሩ ይዘቶች መቀመጫ ሳጥን (Responsive ለማድረግ ዋናው ቦታ ይህ ነው) */
+/* Inner contents container taking full width of the view */
 .header__contents {
-    width: 100%;
-    max-width: 1920px;
-    padding: 0 4%; /* በሁሉም ስክሪን ላይ በግራና ቀኝ 4% ክፍተት ይሰጣል */
-    display: flex;
-    justify-content: space-between; /* ሎጎውን በግራ፣ አይኮኖቹን በቀኝ ለማድረግ */
-    align-items: center;
-    box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4%;
+  box-sizing: border-box;
 }
 
-/* 📸 የኔትፍሊክስ ሎጎ መጠን */
+/* Netflix transparent logo configuration centered perfectly */
 .header__logo {
-    width: 240px;
-    object-fit: contain;
-    cursor: pointer;
+  height: 62px; /* 🟢 Ideal desktop height keeping it perfectly bounded inside 68px header */
+  width: auto; /* Scales proportionally to prevent distortion */
+  object-fit: contain;
+  cursor: pointer;
+  background-color: transparent !important;
 }
 
-/* 🛠️ በቀኝ በኩል ያሉ አይኮኖች እና ሊንኮች መሰብሰቢያ */
+/* Right side navigation utilities aligning inline */
 .header__right {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* በአይኮኖቹ መካከል ያለው እኩል ክፍተት */
-    color: white;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-/* 🔍 የፍለጋ እና የደወል አይኮኖች ስታይል */
+/* Custom interactive navigation icons properties */
 .header__icon {
-    font-size: 20px;
-    cursor: pointer;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-/* 📝 KIDS የሚለው ጽሑፍ ስታይል */
+/* Kids text link navigation layout */
 .header__navLink {
-    font-size: 14px;
-    cursor: pointer;
-    font-weight: 500;
-    white-space: nowrap; /* ጽሑፉ ተከፍሎ ወደ ታች እንዳይወርድ ይከላከላል */
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-/* 👤 የፕሮፋይል ፎቶ እና ቀስቱን አንድ ላይ የሚይዝ ሳጥን */
+/* Profile image configuration along with the arrow */
 .header__profileContainer {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
-/* 📐 የፕሮፋይል ፎቶ መጠን */
 .header__avatar {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  object-fit: contain;
 }
 
-/* 🔽 የተቆልቋይ ቀስት ስታይል */
 .header__dropdownIcon {
-    font-size: 18px;
-    transition: transform 0.15s ease;
+  color: #fff;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
 }
 
-/* 📱 ለሞባይል እና ለትንሽ ስክሪኖች የተዘጋጀ ማስተካከያ (Media Query) */
+/* Dynamic active scrolled operational class background injection */
+.header__black {
+  background-color: #111 !important;
+}
+
+/* 📱 Responsive configurations for smaller responsive mobile devices */
 @media (max-width: 768px) {
-    .header {
-        height: 50px; /* በሞባይል ቁመቱ ትንሽ ያንሳል */
-    }
+  .header {
+    height: 50px; /* Reduced header height for mobile views */
+  }
 
-    .header__logo {
-        width: 130px; /* በሞባይል ሎጎው ያንሳል */
-    }
+  .header__logo {
+    height: 24px; /* 🟢 Fixed mobile conflict: Keep using height-based scaling so it stays inside 50px header */
+    width: auto;
+  }
 
-    .header__right {
-        gap: 15px; /* በሞባይል በአይኮኖቹ መካከል ያለው ክፍተት ይጠባል */
-    }
+  .header__right {
+    gap: 15px;
+  }
 
-    .header__icon {
-        font-size: 16px; /* የአይኮኖቹ መጠን በሞባይል ያንሳል */
-    }
+  .header__icon {
+    font-size: 1rem;
+  }
 
-    .header__navLink {
-        font-size: 12px; /* የ KIDS ጽሑፍ መጠን ያንሳል */
-    }
+  .header__navLink {
+    font-size: 0.8rem;
+  }
 
-    .header__avatar {
-        width: 26px;
-        height: 26px;
-    }
+  .header__avatar {
+    width: 26px;
+    height: 26px;
+  }
 }
