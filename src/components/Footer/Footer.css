@@ -1,0 +1,102 @@
+/* 🟢 Main footer container styling and background color */
+.footer {
+    background-color: #141414; /* Matches the solid header black color */
+    color: #808080; /* Standard muted gray Netflix link color */
+    padding: 70px 0 40px 0;
+    font-size: 14px;
+}
+
+/* 📐 Content width constraint and center alignment */
+.footer__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 4%; /* Gives a neat responsive 4% spacing on left and right */
+    box-sizing: border-box;
+}
+
+/* Top title contact line spacing */
+.footer__title {
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.footer__title:hover {
+    text-decoration: underline;
+}
+
+/* Flexbox container to distribute column rows evenly */
+.footer__rows {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Automatically wraps columns vertically on smaller screens */
+    margin-bottom: 30px;
+}
+
+/* 🔹 Layout setup for each single vertical link list column */
+.footer__column {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+/* 🔗 Links behavior and styling rules */
+.footer__column a {
+    color: #808080;
+    text-decoration: none;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.footer__column a:hover {
+    text-decoration: underline;
+}
+
+/* 🌍 Container grouping the globe icon and dropdown select tag */
+.footer__languageContainer {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4); /* Muted semi-transparent background */
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 0 15px;
+    margin-bottom: 25px;
+}
+
+/* 🌐 Globe Icon styling properties */
+.footer__globeIcon {
+    color: #808080;
+    font-size: 16px;
+    margin-right: 8px; /* Adds space before text option elements */
+}
+
+/* 🔽 Dropdown Selection tag configuration */
+.footer__langSelect {
+    background: transparent;
+    color: #808080;
+    border: none;
+    font-size: 14px;
+    padding: 12px 25px 12px 0;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none; /* Disables standard operating system default dropdown arrow */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* 💡 Styling options window layer elements */
+.footer__langSelect option {
+    background-color: #141414;
+    color: #fff;
+}
+
+/* ✨ CSS Pseudo-element to inject a custom dropdown arrow icon */
+.footer__languageContainer::after {
+    content: '▼';
+    font-size: 10px;
+    color: #808080;
+    position: absolute;
+    right: 15px;
+    pointer-events: none; /* Prevents text block clicks from overriding drop container functionality */
+}

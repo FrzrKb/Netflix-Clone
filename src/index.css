@@ -4,10 +4,31 @@
 }
 
 body {
-  
   background-color: #111; /* /netflix black background */
   color: #fff;
-  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Apply globally to all elements for layout predictability */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Clean fallback stack mirroring premium streaming platforms */
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+body {
+  background-color: #141414;
+  color: #fff;
+  /* Font smoothing optimization for crisp text rendering on high-res displays */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
