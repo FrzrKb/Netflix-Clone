@@ -26,7 +26,7 @@
 
 /* Netflix transparent logo configuration centered perfectly */
 .header__logo {
-  height: 62px; /* 🟢 Ideal desktop height keeping it perfectly bounded inside 68px header */
+  height: 70px; /* 🟢 Ideal desktop height keeping it perfectly bounded inside 68px header */
   width: auto; /* Scales proportionally to prevent distortion */
   object-fit: contain;
   cursor: pointer;
@@ -87,7 +87,7 @@
   }
 
   .header__logo {
-    height: 24px; /* 🟢 Fixed mobile conflict: Keep using height-based scaling so it stays inside 50px header */
+    height: 54px; /* 🟢 Fixed mobile conflict: Keep using height-based scaling so it stays inside 50px header */
     width: auto;
   }
 
