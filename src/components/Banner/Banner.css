@@ -1,85 +1,194 @@
-/* Styling for the main header banner container */
 .banner {
-    color: white;
-    object-fit: contain;
-    height: 448px; /* Standard banner height */
+  color: white;
+  object-fit: contain;
+
+  /* 🔴 በሁሉም ስክሪን ላይ ሙሉ ቁመት (Full Screen Height) እንዲይዝ ያደርጋል */
+  height: 80vh; /* ከስክሪኑ 80% የሚሆነውን ቁመት ይይዛል (ልክ እንደ ኦፊሴላዊው ኔትፍሊክስ) */
+
+  /* 🔴 ምስሉ ሳይዛባ እና ሳይቆረጥ ሙሉ ስክሪኑን እንዲሞላ የሚያደርጉ ዋና ቁልፎች */
+  background-size: cover;
+  background-position: center top; /* ምስሉ መሃል ላይ ሆኖ ከላይኛው ክፍል መታየት እንዲጀምር ያደርጋል */
+  background-repeat: no-repeat;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background-image 0.5s ease-in-out;
 }
 
-/* Container arranging the inner titles and buttons */
 .banner__contents {
-    margin-left: 30px;
-    padding-top: 140px;
-    height: 190px;
+  margin-left: 30px;
+  padding-top: 140px;
+  height: 190px;
+  z-index: 2;
 }
 
-/* Movie title text typography */
 .banner__title {
-    font-size: 3rem;
-    font-weight: 800;
-    padding-bottom: 0.3rem;
+  font-size: 3rem;
+  font-weight: 800;
+  padding-bottom: 0.3rem;
 }
 
-/* Styling properties for the action buttons */
+.banner__buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
 .banner__button {
-    cursor: pointer;
-    color: #fff;
-    outline: none;
-    border: none;
-    font-weight: 700;
-    border-radius: 0.2vw;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-right: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    background-color: rgba(51, 51, 51, 0.5); /* Semi-transparent grey */
-    transition: all 0.2s;
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-weight: 700;
+  border-radius: 0.2vw;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgba(51, 51, 51, 0.5);
+  transition: all 0.2s;
 }
 
-/* Button behavior when user hovers over it */
 .banner__button:hover {
-    color: #000;
-    background-color: #e6e6e6; /* White highlight on hover */
+  color: #000;
+  background-color: #e6e6e6;
 }
 
-/* Layout style for the truncated description text */
 .banner__description {
-    width: 45rem;
-    line-height: 1.3;
-    padding-top: 1rem;
-    font-size: 0.8rem;
-    max-width: 360px;
-    height: 80px;
+  width: 45rem;
+  line-height: 1.3;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  max-width: 360px;
+  height: 80px;
 }
 
-/* The linear gradient masking code creating the shadow blend at the bottom */
+/* 🔴 ከባነሩ በታች ወደ ፊልሞች ዝርዝር በለስላሳ ሁኔታ እንዲደበዝዝ የሚያደርገው (Fade Effect) */
 .banner--fadeBottom {
-    height: 7.4rem;
-    background-image: linear-gradient(
-        180deg,
-        transparent,
-        rgba(30,33,37, 0.61),
-        #141414 /* Blends flawlessly into the global app background */
-    );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 7.4rem;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.61),
+    #111
+  );
+  z-index: 1;
 }
 
-/* Responsive configurations for smaller screens */
+/* 📱 ለተለያዩ የስክሪን መጠኖች (Media Queries) ማስተካከያ */
+
+/* ለትላልቅ ስክሪኖች (Desktops/TV) */
+@media (min-width: 1200px) {
+  .banner {
+    height: 85vh;
+  }
+  .banner__title {
+    font-size: 4rem;
+  }
+}
+
+/* ለአማካኝ ስክሪኖች (Tablets/Laptops) */
+@media (max-width: 992px) {
+  .banner {
+    height: 65vh;
+  }
+  .banner__title {
+    font-size: 2.5rem;
+  }
+  .banner__contents {
+    margin-left: 20px;
+  }
+}
+
+/* ለአነስተኛ ስክሪኖችና ለሞባይል ስልኮች (Mobile Devices) */
 @media (max-width: 768px) {
-    .banner {
-        height: 350px;
-    }
+  .banner {
+    height: 55vh;
+    background-position: center center;
+  }
+  .banner__contents {
+    padding-top: 100px;
+    margin-left: 15px;
+  }
+  .banner__title {
+    font-size: 1.8rem;
+  }
+  .banner__description {
+    font-size: 0.75rem;
+    width: 85%;
+  }
+  .banner__button {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
 
-    .banner__contents {
-        padding-top: 100px;
-        margin-left: 20px;
-    }
+/* 🔴 My List ላይ Add ሲደረግ የሚመጣ ውብ የኔትፍሊክስ ግራጫ ከለር */
+.banner__buttonList--added {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
 
-    .banner__title {
-        font-size: 2rem;
-    }
+/* የራይት (Check) ምልክት አኒሜشن */
+.banner__iconCheck {
+  color: #46d369;
+  animation: scaleUp 0.2s ease-in-out;
+}
 
-    .banner__description {
-        font-size: 0.75rem;
-        max-width: 280px;
-    }
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 🔴 የቪዲዮው መያዣ ሙሉ በሙሉ ራሱን ችሎ ከባነሩ በታች ይቀመጣል (የባነሩን ክሊክ በፍፁም አይጋርድም) */
+.banner__trailerContainer {
+  position: relative;
+  width: 100%;
+  background-color: #000;
+  padding-top: 60px; /* 🔴 ለኤክስ በተኑ ከላይ በቂና ጽዱ ቦታ ለመስጠት ከፍ አድርገነዋል */
+  box-shadow: 0px -10px 30px rgba(0, 0, 0, 0.9);
+  z-index: 5;
+}
+
+/* 🔴 የተስተካከለው የኤክስ (Close) በተን - ከቪዲዮው ሳጥን አናት በቀኝ በኩል ፍጹም ቦታ ላይ */
+.banner__closeButton {
+  position: absolute;
+  top: 15px; /* ከጥቁሩ ሳጥን አናት ላይ በሰላም ይቀመጣል */
+  right: 25px; /* በስተቀኝ በኩል ያለው ርቀት */
+  background: rgba(255, 255, 255, 0.1); /* ግልጽነት ያለው ውብ የኔትፍሊክስ ስታይል */
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease-in-out;
+}
+
+/* ማውስ በተኑ ላይ ሲያርፍ */
+.banner__closeButton:hover {
+  background-color: #e50914; /* የኔትፍሊክስ ቀይ ከለር */
+  border-color: #e50914;
+  transform: scale(1.1);
+}
+
+/* ቪዲዮው ራሱ */
+.banner__trailer {
+  width: 100%;
+  margin-top: 0;
 }

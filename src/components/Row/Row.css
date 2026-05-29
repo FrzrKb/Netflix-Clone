@@ -38,3 +38,42 @@
 .row__posterLarge:hover {
   transform: scale(1.09); /* Zoom in slightly more for the main feature */
 }
+/* 🔴 3. የዩቲዩብ ማጫወቻ እና የመዝጊያ በተን መያዣ ኮንቴነር */
+.row__youtubeWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  background-color: #000;
+  padding-top: 10px;
+}
+
+/* 🔴 4. ቪዲዮውን "Back" አድርጎ የሚወጣው ማራኪ በተን ዲዛይን */
+.row__closeButton {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 10; /* ከቪዲዮው በላይ እንዲሆን */
+  background-color: #e50914; /* ኔትፍሊክስ ቀይ */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+}
+
+/* ማውሱ በተኑ ላይ ሲያርፍ በትንሹ ጎላ እንዲል */
+.row__closeButton:hover {
+  background-color: #b80710;
+  transform: scale(1.05);
+}
+
+/* በተኑ ሲጫን በትንሹ እንዲያንስ */
+.row__closeButton:active {
+  transform: scale(0.95);
+}

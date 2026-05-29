@@ -13,6 +13,10 @@
   box-sizing: border-box;
 }
 
+.header__black {
+  background-color: #111 !important;
+}
+
 /* Inner contents container taking full width of the view */
 .header__contents {
   width: 100%;
@@ -20,34 +24,68 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 4%;
+  /* 🔴 ከግራ በኩል ያለውን padding ወደ 2% በመቀነስ ሎጎውን ወደ ዳርና ወደ ላይ አስጠጋነው */
+  padding: 0 4% 0 2%; 
   box-sizing: border-box;
 }
 
-/* Netflix transparent logo configuration centered perfectly */
-.header__logo {
-  height: 70px; /* 🟢 Ideal desktop height keeping it perfectly bounded inside 68px header */
-  width: auto; /* Scales proportionally to prevent distortion */
-  object-fit: contain;
-  cursor: pointer;
-  background-color: transparent !important;
+.header__left {
+  display: flex;
+  align-items: center;
 }
 
-/* Right side navigation utilities aligning inline */
+/* 🔴 Netflix Official Header Logo - ወደ ጎን እና ወደ ላይ ሰፋ እንዲል የተስተካከለ */
+.header__logo {
+  height: 65px; /* ቁመቱን ከፍ በማድረግ ወደ ላይና ታች ሰፋ እንዲል አደረግነው */
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  /* 🔴 ወደ ግራ ጠርዝ ይበልጥ እንዲጠጋ margin-left ሰጥተነዋል */
+  margin-left: 10px; 
+  margin-top: 2px;
+}
+
 .header__right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 22px;
 }
 
-/* Custom interactive navigation icons properties */
 .header__icon {
   color: #fff;
   font-size: 1.2rem;
   cursor: pointer;
+  transition: transform 0.2s;
 }
 
-/* Kids text link navigation layout */
+.header__icon:hover {
+  transform: scale(1.1);
+}
+
+/* Search Box styling */
+.header__searchContainer {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.header__searchContainer--active {
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 1px solid #fff;
+}
+
+.header__searchInput {
+  background: transparent;
+  border: none;
+  color: white;
+  margin-left: 10px;
+  outline: none;
+  font-size: 0.9rem;
+  width: 160px;
+}
+
 .header__navLink {
   color: #fff;
   font-size: 0.9rem;
@@ -55,7 +93,16 @@
   cursor: pointer;
 }
 
-/* Profile image configuration along with the arrow */
+.header__navLink--active {
+  color: #e50914 !important;
+  font-weight: 700;
+}
+
+/* Profile Dropdown styling */
+.header__profileWrapper {
+  position: relative;
+}
+
 .header__profileContainer {
   display: flex;
   align-items: center;
@@ -75,36 +122,185 @@
   transition: transform 0.3s;
 }
 
-/* Dynamic active scrolled operational class background injection */
-.header__black {
-  background-color: #111 !important;
+.header__dropdownIcon--rotate {
+  transform: rotate(180deg);
 }
 
-/* 📱 Responsive configurations for smaller responsive mobile devices */
+/* Dropdown Menu smooth transition */
+.header__dropdownMenu {
+  position: absolute;
+  top: 55px; 
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 1px solid #333;
+  border-radius: 4px;
+  width: 160px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.header__dropdownMenu--active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.header__dropdownItem {
+  color: #fff;
+  font-size: 13px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.header__dropdownItem:hover {
+  background-color: #333;
+  text-decoration: underline;
+}
+
+.header__dropdownDivider {
+  border: 0;
+  border-top: 1px solid #333;
+  margin: 5px 0;
+}
+
+.header__logoutItem {
+  font-weight: 700;
+}
+.header__logoutItem:hover {
+  background-color: #e50914;
+  text-decoration: none;
+}
+
+/* Custom Netflix-Style Logout Modal overlay layer */
+.header__modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.header__logoutModal {
+  background-color: #141414;
+  border: 1px solid #333;
+  padding: 35px;
+  width: 420px;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.8);
+  animation: modalSlideUp 0.3s ease-out;
+}
+
+.header__logoutModal h2 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.header__logoutModal p {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.header__modalButtons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.header__modalBtnConfirm {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 10px 24px;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.header__modalBtnConfirm:hover {
+  background-color: #c40812;
+}
+
+.header__modalBtnCancel {
+  background-color: #333;
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 10px 24px;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.header__modalBtnCancel:hover {
+  background-color: #444;
+}
+
+.header__toastNotification {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e50914;
+  color: white;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 4px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+@keyframes modalSlideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .header {
-    height: 50px; /* Reduced header height for mobile views */
+    height: 50px;
   }
-
+  .header__contents {
+    padding: 0 15px;
+  }
   .header__logo {
-    height: 54px; /* 🟢 Fixed mobile conflict: Keep using height-based scaling so it stays inside 50px header */
-    width: auto;
+    height: 45px;
+    margin-left: 0;
   }
-
   .header__right {
     gap: 15px;
   }
-
-  .header__icon {
-    font-size: 1rem;
+  .header__logoutModal {
+    width: 90%;
+    padding: 25px 20px;
   }
-
-  .header__navLink {
-    font-size: 0.8rem;
-  }
-
-  .header__avatar {
-    width: 26px;
-    height: 26px;
+  .header__logoutModal h2 {
+    font-size: 1.5rem;
   }
 }

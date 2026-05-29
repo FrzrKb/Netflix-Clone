@@ -1,0 +1,130 @@
+.signUpScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.Create_title {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.signUpScreen__body {
+  max-width: 450px;
+  width: 100%;
+  padding: 60px 68px;
+  background: rgba(10, 43, 26, 0.85);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.signUpScreen__body h1 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.signUpScreen__errorBox {
+  background: #e87c03;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.signUpScreen__body form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signUpScreen__body input {
+  outline: none;
+  border: none;
+  height: 50px;
+  padding: 0 20px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  background: #333;
+  color: white;
+  font-size: 16px;
+}
+
+.signUpScreen__body input:focus {
+  background: #454545;
+}
+
+.signUpScreen__button {
+  height: 50px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 4px;
+  background-color: #e50914;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  transition: background-color 0.2s;
+}
+
+.signUpScreen__button:hover {
+  background-color: #c40812;
+}
+
+.signUpScreen__button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.signUpScreen__textLink {
+  color: #fff;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.signUpScreen__signInLink {
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.signUpScreen__signInLink:hover {
+  text-decoration: underline;
+}
+
+.gray {
+  color: #737373;
+}
+
+/* ለ SignUp ገጽ የአይን ምልክት አቀማመጥ */
+.signUpScreen__passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.signUpScreen__passwordWrapper input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 🔴 የተስተካከለው የ SignUp አይኮን አቀማመጥ */
+.signUpScreen__visibilityToggle {
+  position: absolute;
+  right: 15px;
+  top: 50%; /* 🔴 እዚህም ላይ ከ 32% ወደ 50% ተስተካክሏል */
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #b3b3b3;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.signUpScreen__visibilityToggle:hover {
+  color: #fff;
+}
